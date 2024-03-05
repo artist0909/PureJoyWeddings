@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.registration-container {
+    max-width: 40%;
+    margin: 50px auto;
+    /* background-color: #fff; */
+    padding: 50px;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 1);
+    background-color: white;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #ffc107;
+}
