@@ -1,5 +1,11 @@
+<?php 
+  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+		$loggedin = true;
+	}
+  else{
+    $loggedin = false;
+  }
 
-<?php
 echo'
 <nav class="navbar navbar-expand-lg  bg-warning">
   <div class="container-fluid">
@@ -11,30 +17,27 @@ echo'
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-          <a href="weddingplanner.html"><img src="1024px-Home-icon.svg.png" height="20px"></a>
+          <a href="weddingplanner.php"><img src="images\1024px-Home-icon.jpg" height="20px"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="photographer.php">Photographer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#" role="button">
+          <a class="nav-link active" href="decorator.php" role="button">
             Decorater
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Catrace</a>
+          <a class="nav-link active" href="venue.php">Venue</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Dj</a>
+          <a class="nav-link active" href="food.php">Catrace</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active">Pandit</a>
+          <a class="nav-link active" href="dj.php">Dj</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
 		<li class="nav-item">
           <a class="nav-link active" href="registration.php">Registration</a>
@@ -42,11 +45,20 @@ echo'
         <li class="nav-item">
           <a class="nav-link active" href="aboutus.html">AboutUs</a>
         </li>
-      </ul>
+      </ul>';
+      if(!$loggedin){
+      echo'
       <form class="d-flex" role="search">
-      	<img src="1024px-Search_Icon.svg.png" height="20px">
-        <button class="form-control me-2" type="login"><a href="login.php">Login</a></button>
-      </form>
+      	<img src="images\1024px-Search_Icon.jpg" height="20px">
+        <button class="form-control me-2" type="login"><a href="login2.php">Login</a></button>
+        <button class="form-control me-2" type="login"><a href="signup.php">Signup</a></button>';
+      }
+      if($loggedin){
+        echo'
+        <button class=" logout form-control me-2" type="login"><a href="logout.php" class="logoutanchor">Logout</a></button>
+      </form>';
+      }
+      echo'
     </div>
   </div>
 </nav>';

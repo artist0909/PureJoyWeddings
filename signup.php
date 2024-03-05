@@ -21,12 +21,13 @@
 
     // $exists=false;
     //check wether this username exists
-    $existsSql = "SELECT * FROM user WHERE uname = 'vimal@123gmail.com'";
-    $numExitRows = mysqli_num_rows($result);
+    $existsSql = "SELECT * FROM `user` WHERE uname = '$uname'";
     $result = mysqli_query($conn,$existsSql);
+    $numExitRows = mysqli_num_rows($result);
 
     if($numExitRows > 0){
-      $exists = true;
+      // $exists = true;
+      $showError="username alredy exists";
     }
     else{
       $exists = false;
