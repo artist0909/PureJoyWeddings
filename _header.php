@@ -50,8 +50,8 @@ echo'
       echo'
       <form class="d-flex" role="search">
       	<img src="images\1024px-Search_Icon.jpg" height="20px">
-        <button class="form-control me-2" type="login"><a href="login2.php">Login</a></button>
-        <button class="form-control me-2" type="login"><a href="signup.php">Signup</a></button>';
+        <button class="form-control me-2" type="login"><a href="login2.php" class="loginanchor">Login</a></button>
+        <button class="form-control me-2" type="login"><a href="signup.php" class="signupanchor">Signup</a></button>';
       }
       if($loggedin){
         echo'

@@ -68,16 +68,15 @@ box-shadow: 10px 5px 5px black;
         color: black;
     }
 
-    .pandit_detail_link{
-      text-decoration: none;
-      color: black;
+    .back_button_of_login{
+        color: black; 
     }
     </style>
 </head>
 
 <body>
     <?php 
-    session_start();
+  session_start();
   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 		$loggedin = true;
 	}
@@ -147,30 +146,36 @@ echo'
 	require '_dbconnect.php';
 ?>
     <div class="container mt-3">
-    <h1>Wedding Pandits</h1>
-      <hr class="mb-4">
+        <a href="pandit.php" class="back_button_of_login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M21 12H3.5" />
+                    <path d="M3 12L10 19M3 12L10 5" />
+                </g>
+            </svg>
+        </a>
+        <h1>Wedding Pandits</h1>
+        <hr class="mb-4">
         <div class="row">
             <?php
-        $database = new Database();
-        $cards = $database->getAllPanditCards();
+            $database = new Database();
+            $cards = $database->getAllPanditDetailCards();
 
         if ($cards) {
             foreach ($cards as $card) {
                 ?>
-            <div class="col-md-4 mb-4">
+            <div class="col-md-5 mb-4">
                 <div class="card">
                     <?php if (!empty($card['pandit_sno'])) { ?>
                     <img src="images\pandit_images\Wedding-Pandit-<?php echo $card['pandit_sno']; ?>.jpg"
                         class="card-img-top" alt="Card Image">
                     <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title"><a class="pandit_detail_link" href="pandit_detail.php?pandit_sno=<?php echo $card['pandit_sno']; ?>"><?php echo $card['pandit_name']; ?></a></h5>
+                        <h5 class="card-title"><?php echo $card['pandit_name']; ?></h5>
                         <p class="card-text">Location: <?php echo $card['pandit_location']; ?></p>
                         <p class="card-text">Charges: <?php echo $card['pandit_charges']; ?></p>
                         <p class="card-text">Email: <?php echo $card['email']; ?></p>
                         <p class="card-text">Contact Number: <?php echo $card['contact_number']; ?></p>
-                        <a href="pandit_detail.php?pandit_sno=<?php echo $card['pandit_sno']; ?>" class="btn btn-primary">Go somewhere</a>
-                        <!-- Add additional card details here -->
                     </div>
                 </div>
             </div>
@@ -183,48 +188,6 @@ echo'
         </div>
     </div>
 
-    <!-- <div class="bride_groom_img">
-	<img src="bride_groom.jpg" class="img-fluid img-custom">
-	<div class="text-overlay">	
-		<h1>Your Wedding palannig is now Our Responsibilites!</h1>
-		<h3>find the best weddingd venue with the 100 reviews</h3>
-		<div class="btn-group">
-		  <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-		    Select vendor type
-		  </button>
-		  <ul class="dropdown-menu">
-		    <li><a class="dropdown-item" href="#">Action</a></li>
-		    <li><a class="dropdown-item" href="#">Another action</a></li>
-		    <li><a class="dropdown-item" href="#">Something else here</a></li>
-		    <li><hr class="dropdown-divider"></li>
-		    <li><a class="dropdown-item" href="#">Separated link</a></li>
-		  </ul>
-		</div>
-		<div class="btn-group">
-		  <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-		    Select your favorite city
-		  </button>
-		  <ul class="dropdown-menu">
-		    <li><a class="dropdown-item" href="#">Jamnager</a></li>
-		    <li><a class="dropdown-item" href="#">Rajkot</a></li>
-		    <li><a class="dropdown-item" href="#">Ahemdabad</a></li>
-		    <li><hr class="dropdown-divider"></li>
-		    <li><a class="dropdown-item" href="#">Separated link</a></li>
-		  </ul>
-		</div>
-	</div>
-</div> -->
-
-    <!-- <nav>
-		<h1>PureJoyWeddings</h1>
-		<li>Home</li>
-		<li>Photographer</li>
-		<li>Decorater</li>
-		<li>Catrace</li>
-		<li>Dj</li>
-		<li>Pandit</li>
-	</nav>
- -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

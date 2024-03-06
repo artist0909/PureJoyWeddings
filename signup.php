@@ -32,7 +32,8 @@
     else{
       $exists = false;
       if(($pass == $cpass)){
-        $sql = "INSERT INTO `user` (`uname`, `password`) VALUES ('$uname', '$pass')";
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `user` (`uname`, `password`) VALUES ('$uname', '$hash')";
         $result= mysqli_query($conn,$sql);
         if($result){
           $showAlert = true;

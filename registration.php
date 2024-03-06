@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="registration.css">
 </head>
 <body>
-
     <div class="registration-container">
         <h2>Wedding Planner Registration</h2>
         <form id="weddingPlannerRegistrationForm" action="registration.php" method="post">

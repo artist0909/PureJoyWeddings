@@ -66,6 +66,60 @@ class Database
         return $result;
     }
 
+    public function getAllPhotographerDetailCards()
+    {
+        $photosno = $_GET['photo_sno'];
+        $query = "SELECT * FROM `photographer_detail` WHERE photo_sno = $photosno";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllDecoratorDetailCards()
+    {
+        $decorsno = $_GET['decor_sno'];
+        $query = "SELECT * FROM `decorater_detail` WHERE decor_sno= $decorsno";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllDjDetailCards()
+    {
+        $djsno = $_GET['sno'];
+        $query = "SELECT * FROM `dj_details` WHERE sno = $djsno";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllVenueDetailCards()
+    {
+        $venuesno = $_GET['venue_sno'];
+        $query = "SELECT * FROM `venue` WHERE venue_sno= $venuesno";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllPanditDetailCards()
+    {
+        $panditsno = $_GET['pandit_sno'];
+        $query = "SELECT * FROM `pandit_detail` WHERE pandit_sno= $panditsno";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllFoodDetailCards()
+    {
+        $foodsno = $_GET['food_sno'];
+        $query = "SELECT * FROM `food_detail` WHERE food_sno= $foodsno ";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 
     // public function getAllCarda()
     // {
