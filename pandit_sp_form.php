@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Planner Registration</title>
+    <title>Pandit_sp_form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="registration.css"> -->
@@ -84,14 +84,14 @@
       die("Error". mysqli_connect_error());
     } 
 
-    $fullname = $_POST["name"];
+    $panditname = $_POST["panditname"];
+    $location = $_POST["panditlocation"];
+    $charges = $_POST["panditcharges"];
     $email = $_SESSION['uname'];
-    $gender = $_POST["gender"];
-    $pnumber = $_POST["phone"];
-    $register_as = $_POST["register_as"];
+    $contact = $_POST["contactnumber"];
 
-    $sql = "INSERT INTO `registration_detail` (`fullname`, `gender`, `email`, `pnumber`, `register_as`) 
-    VALUES ('$fullname', '$gender', '$email', '$pnumber', '$register_as')";
+    $sql = "INSERT INTO `pandit_detail` (`pandit_name`, `pandit_location`, `pandit_charges`, `email`, `contact_number`) 
+    VALUES ('$panditname','$location','$charges','$email','$contact')";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -110,38 +110,18 @@
 <body>
     <div class="registration-container">
         <h2>Wedding Planner Registration</h2>
-        <form id="weddingPlannerRegistrationForm" action="registration.php" method="post">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form id="weddingPlannerpandit_sp_Form" action="pandit_sp_form.php" method="post">
+            <label for="panditname">Full Name:</label>
+            <input type="text" id="panditname" name="panditname" required>
 
-            <label for="gender">Gender:</label>
-            <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                <label class="form-check-label" for="gender">Male</label>
-            </div>
-            <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                <label class="form-check-label" for="gender">Female</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                <label class="form-check-label" for="gender">Other</label>
-            </div>
+            <label for="panditlocation">Location:</label>
+            <input type="tel" id="panditlocation" name="panditlocation" required>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="panditcharges">Charges:</label>
+            <input type="tel" id="panditcharges" name="panditcharges" required>
 
-            <label for="gender">Register As:</label>
-            <div class="form-check form-check-inline col-md-7">
-                <input class="form-check-input" type="radio" name="register_as" id="user" value="user">
-                <label class="form-check-label" for="inlineRadio1">User</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="register_as" id="serpro" value="serpro">
-                <label class="form-check-label" for="inlineRadio2">Service Provider</label>
-            </div>
-
-
+            <label for="contactnumber">Contact:</label>
+            <input type="tel" id="contactnumber" name="contactnumber" required>
 
             <button type="submit">Register</button>
         </form>

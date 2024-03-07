@@ -29,7 +29,7 @@
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['uname'] = $uname;
-          header("location: weddingplanner.php");
+          header("location: registration.php");
         }
         else{
           $showError=" Invalid Credentials";

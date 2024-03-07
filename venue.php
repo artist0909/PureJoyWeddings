@@ -13,7 +13,7 @@
         margin: 0;
         padding: 0;
     }
-    
+
     img {
         padding: 0 10px;
         margin: 9px 0;
@@ -50,9 +50,19 @@
         color: black;
     }
 
-    .venue_detail_link{
-      text-decoration: none;
-      color: black;
+    .venue_detail_link {
+        text-decoration: none;
+        color: black;
+    }
+
+    .add_serpro {
+        display: inline;
+        margin-right: 65%;
+    }
+
+    .venue_sp_form_link {
+        text-decoration: none;
+        color: black;
     }
     </style>
 </head>
@@ -128,8 +138,43 @@ echo'
 	require '_dbconnect.php';
 ?>
     <div class="container mt-3">
-      <h1>Wedding Venues</h1>
-      <hr class="mb-4">
+        <h2 class="add_serpro">Wedding Venue</h2>
+        <?php
+           $server = "localhost";
+           $username = "root";
+           $password = "";
+           $database = "purejoyweddings";
+        
+           $conn = mysqli_connect($server,$username,$password,$database);
+        
+           if(!$conn){
+             die("Error". mysqli_connect_error());
+            } 
+            else{
+              // echo "succssess";
+            }
+            // echo $_SESSION['uname'];
+            $sql = "SELECT * FROM `registration_detail` where email = '" . $_SESSION['uname'] . "'";
+           $result = mysqli_query($conn,$sql);
+           $num = mysqli_num_rows($result);
+          //  echo $num;
+           if($num == 1){
+               while($row = mysqli_fetch_assoc($result)){
+                   $register_as = $row['register_as'];
+                  //  echo $register_as;
+                   if($register_as == "serpro"){
+                    echo'
+                    <a class="venue_sp_form_link" href="venue_sp_form.php">
+                    <b>Advertise Your Business</b>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z" />
+                    </svg>
+                    </a>';
+                   }
+                 }
+               }
+        ?>
+        <hr class="mb-4">
         <div class="row">
             <?php
         $database = new Database();
@@ -145,13 +190,16 @@ echo'
                         class="card-img-top" alt="Card Image">
                     <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title"><a class="venue_detail_link" href="venue_detail.php?venue_sno=<?php echo $card['venue_sno']; ?>"><?php echo $card['venue_name']; ?></a></h5>
+                        <h5 class="card-title"><a class="venue_detail_link"
+                                href="venue_detail.php?venue_sno=<?php echo $card['venue_sno']; ?>"><?php echo $card['venue_name']; ?></a>
+                        </h5>
                         <p class="card-text">Location: <?php echo $card['venue_place']; ?></p>
                         <p class="card-text">Veg Prices: <?php echo $card['venue_veg_price']; ?></p>
                         <p class="card-text">Rooms: <?php echo $card['venue_room']; ?></p>
                         <p class="card-text">Email: <?php echo $card['email']; ?></p>
                         <p class="card-text">Contact Number: <?php echo $card['contact_number']; ?></p>
-                        <a href="venue_detail.php?venue_sno=<?php echo $card['venue_sno']; ?>" class="btn btn-primary">View More</a>
+                        <a href="venue_detail.php?venue_sno=<?php echo $card['venue_sno']; ?>"
+                            class="btn btn-primary">View More</a>
                         <!-- Add additional card details here -->
                     </div>
                 </div>

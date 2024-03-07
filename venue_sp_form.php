@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Planner Registration</title>
+    <title>Photographer_sp_form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="registration.css"> -->
@@ -84,14 +84,15 @@
       die("Error". mysqli_connect_error());
     } 
 
-    $fullname = $_POST["name"];
+    $venuename = $_POST["venuename"];
+    $location = $_POST["venuelocation"];
+    $charges = $_POST["venuevegprice"];
+    $venueroom = $_POST["venueroom"];
     $email = $_SESSION['uname'];
-    $gender = $_POST["gender"];
-    $pnumber = $_POST["phone"];
-    $register_as = $_POST["register_as"];
+    $contact = $_POST["contactnumber"];
 
-    $sql = "INSERT INTO `registration_detail` (`fullname`, `gender`, `email`, `pnumber`, `register_as`) 
-    VALUES ('$fullname', '$gender', '$email', '$pnumber', '$register_as')";
+    $sql = "INSERT INTO `venue` (`venue_name`, `venue_place`,`venue_veg_price`,`venue_room`,`email`, `contact_number`) 
+    VALUES ('$venuename','$location','$charges','$venueroom','$email','$contact')";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -110,38 +111,21 @@
 <body>
     <div class="registration-container">
         <h2>Wedding Planner Registration</h2>
-        <form id="weddingPlannerRegistrationForm" action="registration.php" method="post">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form id="weddingPlannervenue_sp_Form" action="venue_sp_form.php" method="post">
+            <label for="venuename">Full Name:</label>
+            <input type="text" id="venuename" name="venuename" required>
 
-            <label for="gender">Gender:</label>
-            <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                <label class="form-check-label" for="gender">Male</label>
-            </div>
-            <div class="form-check form-check-inline col-md-4">
-                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                <label class="form-check-label" for="gender">Female</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                <label class="form-check-label" for="gender">Other</label>
-            </div>
+            <label for="venuelocation">Location:</label>
+            <input type="tel" id="venuelocation" name="venuelocation" required>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="venuevegprice">Venue Veg Price:</label>
+            <input type="tel" id="venuevegprice" name="venuevegprice" required>
 
-            <label for="gender">Register As:</label>
-            <div class="form-check form-check-inline col-md-7">
-                <input class="form-check-input" type="radio" name="register_as" id="user" value="user">
-                <label class="form-check-label" for="inlineRadio1">User</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="register_as" id="serpro" value="serpro">
-                <label class="form-check-label" for="inlineRadio2">Service Provider</label>
-            </div>
+            <label for="venueroom">Room:</label>
+            <input type="tel" id="venueroom" name="venueroom" required>
 
-
+            <label for="contactnumber">Contact:</label>
+            <input type="tel" id="contactnumber" name="contactnumber" required>
 
             <button type="submit">Register</button>
         </form>

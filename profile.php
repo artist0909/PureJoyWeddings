@@ -10,7 +10,97 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="profile.css">
+    <!-- <link rel="stylesheet" type="text/css" href="profile.css"> -->
+    <style>
+    * {
+        margin: 0px 0px;
+        padding: 0px 0px;
+    }
+
+    .navbar {
+        background-color: #333;
+        padding: 15px;
+        color: white;
+        position: relative;
+        width: 100%;
+        /*    top: 0;*/
+        /*    z-index: 1000;*/
+    }
+
+    .container {
+        /*    background-color: green;*/
+        width: 35%;
+        /*    height: 400px;*/
+        padding: 50px;
+        position: relative;
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 0.5);
+        background-color: white;
+        border-radius: 5px;
+        margin-top: 40px;
+
+    }
+
+    .row {
+        /*    padding: 80px;*/
+        position: relative;
+        top: 25%;
+        left: 25%;
+        /*margin: auto;
+    display: block;*/
+        /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+    }
+
+    .loginpage {
+        text-decoration: none;
+        color: black;
+    }
+
+    .images {
+        display: block;
+        width: 250px;
+        height: 250px;
+        /*    background-color: red;  */
+    }
+
+    .profile-detail {
+        /*    background-color: red;*/
+        position: relative;
+        width: 500px;
+        top: 7%;
+        left: 7%;
+    }
+
+    .btn {
+        position: relative;
+        /*    width: 500px;*/
+        top: 7%;
+        left: 6%;
+        /*    background-color: red;*/
+    }
+
+    .logout {
+        width: 100px;
+        height: 40px;
+        text-decoration: none;
+    }
+
+    .logoutanchor {
+        text-decoration: none;
+        color: black;
+    }
+
+    .loginanchor {
+        text-decoration: none;
+        color: black;
+    }
+
+    .signupanchor {
+        text-decoration: none;
+        color: black;
+    }
+    </style>
 </head>
 
 <body>
@@ -80,26 +170,58 @@ echo'
   </div>
 </nav>';
 ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 images">
-                <img src="images\user_profile.png" alt="User Profile Photo" class="img-fluid rounded-circle">
-            </div>
-            <div class="col-md-8 profile-detail">
-                <h2>User Profile</h2>
-                <p><b>Username:</b> Devashish Bhatt</p>
-                <p><b>Email:</b> dev0709@gmail.com</p>
-                <p><b>Location:</b> Jamnager,Gujrat</p>
-                <p><b>Joined:</b> January 1, 2024</p>
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-warning">Male</button>
-                    <button type="button" class="btn btn-outline-warning">Female</button>
-                </div>
-                <br>
-                <a href="#" class="btn btn-warning">Edit Profile</a>
-            </div>
-        </div>
-    </div>
+<?php
+   $server = "localhost";
+   $username = "root";
+   $password = "";
+   $database = "purejoyweddings";
+
+   $conn = mysqli_connect($server,$username,$password,$database);
+
+   if(!$conn){
+     die("Error". mysqli_connect_error());
+    } 
+    else{
+      // echo "succssess";
+    }
+    
+    $sql = "SELECT * FROM `registration_detail` where email = '" . $_SESSION['uname'] . "'";
+   $result = mysqli_query($conn,$sql);
+   $num = mysqli_num_rows($result);
+   if($num == 1){
+       while($row = mysqli_fetch_assoc($result)){
+           $fullname = $row['fullname'];
+           $gender = $row['gender'];
+           $pnumber = $row['pnumber'];
+           $register_as = $row['register_as'];
+          //  if($register_as == "serpro"){
+
+          //   code of plus
+          //  }
+         }
+       }
+       echo '<div class="container">
+          <div class="row">
+              <div class="col-md-8 images">
+                  <img src="images\user_profile.png" alt="User Profile Photo" class="img-fluid rounded-circle">
+              </div>
+              <div class="col-md-8 profile-detail">
+                  <h2>User Profile</h2>
+                  <p><b>Username:</b>' . $fullname . '</p>
+                  <p><b>Email:</b> ' . $_SESSION['uname'] . '</p>
+                  <p><b>Gender:</b>' . $gender . '</p>
+                  <p><b>Contact:</b>' . $pnumber . '</p>
+                  <p><b>Register_As:</b>' . $register_as . '</p>
+                  <div class="btn-group" role="group" aria-label="Basic outlined example">
+                      <button type="button" class="btn btn-outline-warning">Male</button>
+                      <button type="button" class="btn btn-outline-warning">Female</button>
+                  </div>
+                  <br>
+                  <a href="#" class="btn btn-warning">Edit Profile</a>
+              </div>
+          </div>
+      </div>'
+?>
 
     <!-- Bootstrap JS and Popper.js -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->

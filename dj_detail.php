@@ -174,7 +174,7 @@ echo'
                         <h5 class="card-title"><?php echo $card['dj_name']; ?></h5>
                         <p class="card-text">Location: <?php echo $card['area']; ?></p>
                         <p class="card-text">Charges: <?php echo $card['charges']; ?></p>
-                        <p class="card-text">Experience: <?php echo $card['experience']; ?></p>
+                        <p class="card-text">Experience: Last <?php echo $card['experience']; ?> Experience</p>
                         <p class="card-text">Email: <?php echo $card['email']; ?></p>
                         <p class="card-text">Contact Number: <?php echo $card['contact_number']; ?></p>
                     </div>
