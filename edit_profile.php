@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PureJoyWeddings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="">
+
+    <!-- <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    .registration-container {
+        max-width: 40%;
+        margin: 50px auto;
+        /* background-color: #fff; */
+        padding: 50px;
+        box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 1);
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    h2 {
+        color: #333;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #ffc107;
+    }
+
+    .gender_radio {
+        /* display: flex; */
+
+    }
+
+    .registeras_radio {
+        /* display: flex; */
+    }
+    </style> -->
+</head>
+
+<body>
+    <?php 
+//   session_start();
+//     $a = "";
+//     $b = "";
+//     $c = "";
+//     $d = "";
+//   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+// 		$loggedin = true;
+// 	}
+//   else{
+//     $loggedin = false;
+//   }
+?>
+    <?php
+
+    //     $login = false;
+    //     $showError = false;
+    //     if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    //     $server = "localhost";
+    //     $username = "root";
+    //     $password = "";
+    //     $database = "purejoyweddings";
+
+    //     $conn = mysqli_connect($server,$username,$password,$database);
+
+    //     if(!$conn){
+    //         die("Error". mysqli_connect_error());
+    //     } 
+
+    //     $sno = $_GET["sno"];
+        
+    //     // $sql = "SELECT * FROM user WHERE uname = '$uname' AND password = '$pass'";
+    //     $sql = "SELECT * FROM `registration_detail` WHERE sno = '$sno'";
+    //     $result= mysqli_query($conn,$sql);
+    //     $num = mysqli_num_rows($result);
+    //     echo $num;
+    //     if($num == 1){
+    //         while($row = mysqli_fetch_assoc($result)){ 
+    //             $a = $row['fullname'];
+    //             $b = $row['gender'];
+    //             $c = $row['pnumber'];
+    //             $d = $row['register_as'];
+    //         }
+    //     }
+    // }
+    //         echo'<div class="registration-container">
+    //         <h2>Wedding Planner Registration</h2>
+    //         <form id="weddingPlannerEditProfileForm" action="edit_profile.php" method="post">
+    //             <label for="name">UserName:</label>
+    //             <input type="text" id="name" name="name" value="' . $a . '" required>
+
+    //             <label for="gender">Gender:</label>
+    //             <div class="form-check form-check-inline col-md-4">
+    //                 <input class="form-check-input" type="radio" name="gender" id="male" value="' . $b . '">
+    //                 <label class="form-check-label" for="gender">Male</label>
+    //             </div>
+    //             <div class="form-check form-check-inline col-md-4">
+    //                 <input class="form-check-input" type="radio" name="gender" id="female" value="' . $b . '">
+    //                 <label class="form-check-label" for="gender">Female</label>
+    //             </div>
+    //             <div class="form-check form-check-inline">
+    //                 <input class="form-check-input" type="radio" name="gender" id="other" value="' . $b . '">
+    //                 <label class="form-check-label" for="gender">Other</label>
+    //             </div>
+
+    //             <label for="phone">Phone Number:</label>
+    //             <input type="tel" id="phone" name="phone" value="' . $c . '" required>
+
+    //             <label for="gender">Register As:</label>
+    //             <div class="form-check form-check-inline col-md-7">
+    //                 <input class="form-check-input" type="radio" name="register_as" id="user" value="' . $d . '">
+    //                 <label class="form-check-label" for="inlineRadio1">User</label>
+    //             </div>
+    //             <div class="form-check form-check-inline">
+    //                 <input class="form-check-input" type="radio" name="register_as" id="serpro" value="' . $d . '">
+    //                 <label class="form-check-label" for="inlineRadio2">Service Provider</label>
+    //             </div>
+
+    //             <button type="submit">Register</button>
+    //         </form>
+    //     </div>';
+    ?>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

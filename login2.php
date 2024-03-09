@@ -20,8 +20,11 @@
 
     // $sql = "SELECT * FROM user WHERE uname = '$uname' AND password = '$pass'";
         $sql = "SELECT * FROM user WHERE uname = '$uname'";
+        $sql2 = "SELECT * FROM registration_detail WHERE email = '$uname'";
     $result= mysqli_query($conn,$sql);
+    $result2= mysqli_query($conn,$sql2);
     $num = mysqli_num_rows($result);
+    $num2 = mysqli_num_rows($result2);
     if($num == 1){
       while($row = mysqli_fetch_assoc($result)){
         if(password_verify($pass, $row['password'])){
@@ -29,7 +32,12 @@
           session_start();
           $_SESSION['loggedin'] = true;
           $_SESSION['uname'] = $uname;
+          if($num2 == 0){
           header("location: registration.php");
+          }
+          else{
+            header("location: weddingplanner.php");
+          }
         }
         else{
           $showError=" Invalid Credentials";

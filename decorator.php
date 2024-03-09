@@ -78,9 +78,14 @@ box-shadow: 10px 5px 5px black;
         margin-right: 61%;
     }
 
-    .decorator_sp_form_link{
-      text-decoration: none;
-      color: black;
+    .decorator_sp_form_link {
+        text-decoration: none;
+        color: black;
+    }
+
+    .profile_icon {
+        margin-right: 1%;
+        color: white;
     }
     </style>
 </head>
@@ -117,6 +122,9 @@ echo'
           </a>
         </li>
         <li class="nav-item">
+				<a class="nav-link active" href="vendor.php">Vendor</a>
+				</li>
+        <li class="nav-item">
           <a class="nav-link active" href="venue.php">Venue</a>
         </li>
         <li class="nav-item">
@@ -145,6 +153,14 @@ echo'
       if($loggedin){
         echo'
         <img src="images\1024px-Search_Icon.jpg" height="20px">
+        <a class="profile_icon" href="profile.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2"/>
+                <path d="M4.271 18.346S6.5 15.5 12 15.5s7.73 2.846 7.73 2.846M12 12a3 3 0 1 0 0-6a3 3 0 0 0 0 6"/>
+                </g>
+                </svg>
+                </a>
         <button class=" logout form-control me-2" type="login"><a href="logout.php" class="logoutanchor">Logout</a></button>
       </form>';
       }
@@ -173,6 +189,7 @@ echo'
               // echo "succssess";
             }
             // echo $_SESSION['uname'];
+            if(isset($_SESSION['uname'])){
             $sql = "SELECT * FROM `registration_detail` where email = '" . $_SESSION['uname'] . "'";
            $result = mysqli_query($conn,$sql);
            $num = mysqli_num_rows($result);
@@ -192,6 +209,7 @@ echo'
                    }
                  }
                }
+              }
         ?>
         <hr class="mb-4">
         <div class="row">
@@ -204,10 +222,12 @@ echo'
                 ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <?php if (!empty($card['decor_sno'])) { ?>
-                    <img src="images\decorator_images\Wedding-Decorator-<?php echo $card['decor_sno']; ?>.jpg"
-                        class="card-img-top" alt="Card Image">
-                    <?php } ?>
+                    <a href="decorator_detail.php?decor_sno=<?php echo $card['decor_sno']; ?>">
+                        <?php if (!empty($card['decor_sno'])) { ?>
+                        <img src="images\decorator_images\Wedding-Decorator-<?php echo $card['decor_sno']; ?>.jpg"
+                            class="card-img-top" alt="Card Image">
+                        <?php } ?>
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title"><a class="decorator_detail_link"
                                 href="decorator_detail.php?decor_sno=<?php echo $card['decor_sno']; ?>"><?php echo $card['decor_name']; ?></a>

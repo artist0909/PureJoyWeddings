@@ -19,7 +19,7 @@
 
     .navbar {
         background-color: #333;
-        padding: 15px;
+        padding: 10px;
         color: white;
         position: relative;
         width: 100%;
@@ -100,6 +100,10 @@
         text-decoration: none;
         color: black;
     }
+    .profile_icon {
+        margin: 0 1%;
+        color: white;
+    }
     </style>
 </head>
 
@@ -135,6 +139,9 @@ echo'
           </a>
         </li>
         <li class="nav-item">
+				<a class="nav-link active" href="vendor.php">Vendor</a>
+				</li>
+        <li class="nav-item">
           <a class="nav-link active" href="venue.php">Venue</a>
         </li>
         <li class="nav-item">
@@ -162,6 +169,15 @@ echo'
       }
       if($loggedin){
         echo'
+        <img src="images\1024px-Search_Icon.jpg" height="20px">
+        <a class="profile_icon" href="profile.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2"/>
+                <path d="M4.271 18.346S6.5 15.5 12 15.5s7.73 2.846 7.73 2.846M12 12a3 3 0 1 0 0-6a3 3 0 0 0 0 6"/>
+                </g>
+                </svg>
+                </a>
         <button class=" logout form-control me-2" type="login"><a href="logout.php" class="logoutanchor">Logout</a></button>
       </form>';
       }
@@ -170,7 +186,7 @@ echo'
   </div>
 </nav>';
 ?>
-<?php
+    <?php
    $server = "localhost";
    $username = "root";
    $password = "";
@@ -188,39 +204,40 @@ echo'
     $sql = "SELECT * FROM `registration_detail` where email = '" . $_SESSION['uname'] . "'";
    $result = mysqli_query($conn,$sql);
    $num = mysqli_num_rows($result);
+  //  $a="";
+  //  $b="";
+  //  $c="";
+  //  $d="";
    if($num == 1){
        while($row = mysqli_fetch_assoc($result)){
-           $fullname = $row['fullname'];
-           $gender = $row['gender'];
-           $pnumber = $row['pnumber'];
-           $register_as = $row['register_as'];
+           $a = $row['fullname'];
+           $b = $row['gender'];
+           $c = $row['pnumber'];
+           $d = $row['register_as'];
+
           //  if($register_as == "serpro"){
 
           //   code of plus
           //  }
-         }
-       }
-       echo '<div class="container">
-          <div class="row">
-              <div class="col-md-8 images">
-                  <img src="images\user_profile.png" alt="User Profile Photo" class="img-fluid rounded-circle">
-              </div>
-              <div class="col-md-8 profile-detail">
-                  <h2>User Profile</h2>
-                  <p><b>Username:</b>' . $fullname . '</p>
-                  <p><b>Email:</b> ' . $_SESSION['uname'] . '</p>
-                  <p><b>Gender:</b>' . $gender . '</p>
-                  <p><b>Contact:</b>' . $pnumber . '</p>
-                  <p><b>Register_As:</b>' . $register_as . '</p>
-                  <div class="btn-group" role="group" aria-label="Basic outlined example">
-                      <button type="button" class="btn btn-outline-warning">Male</button>
-                      <button type="button" class="btn btn-outline-warning">Female</button>
-                  </div>
-                  <br>
-                  <a href="#" class="btn btn-warning">Edit Profile</a>
-              </div>
-          </div>
-      </div>'
+        }
+      }
+      echo '<div class="container">
+         <div class="row">
+             <div class="col-md-8 images">
+                 <img src="images\user_profile.png" alt="User Profile Photo" class="img-fluid rounded-circle">
+             </div>
+             <div class="col-md-8 profile-detail">
+                 <h2>User Profile</h2>
+                 <p><b>Username:</b>' . $a . '</p>
+                 <p><b>Email:</b> ' . $_SESSION['uname'] . '</p>
+                 <p><b>Gender:</b>' . $b . '</p>
+                 <p><b>Contact:</b>' . $c . '</p>
+                 <p><b>Register_As:</b>' . $d . '</p>
+                 <br>
+                 <a href="edit_profile.php" class="btn btn-warning">Edit Profile</a>
+             </div>
+         </div>
+     </div>';
 ?>
 
     <!-- Bootstrap JS and Popper.js -->

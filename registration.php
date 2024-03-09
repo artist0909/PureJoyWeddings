@@ -98,6 +98,7 @@
         <strong>Successfully</strong> Your entery has been submitted successfully!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+        header("location: weddingplanner.php");
        }
        else{
            echo "error -->". mysqli_error($conn);

@@ -109,7 +109,7 @@
 
 <body>
     <div class="registration-container">
-        <h2>Wedding Planner Registration</h2>
+        <h2>Add your bussiness to our website</h2>
         <form id="weddingPlannerdecorator_sp_Form" action="decorator_sp_form.php" method="post">
             <label for="decorname">Full Name:</label>
             <input type="text" id="decorname" name="decorname" required>

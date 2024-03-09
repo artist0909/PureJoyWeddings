@@ -111,7 +111,7 @@
 
 <body>
     <div class="registration-container">
-        <h2>Wedding Planner Registration</h2>
+        <h2>Add your bussiness to our website</h2>
         <form id="weddingPlannerfood_sp_Form" action="food_sp_form.php" method="post">
             <label for="foodname">Full Name:</label>
             <input type="text" id="foodname" name="foodname" required>

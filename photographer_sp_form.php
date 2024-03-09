@@ -109,7 +109,7 @@
 
 <body>
     <div class="registration-container">
-        <h2>Wedding Planner Registration</h2>
+        <h2>Add your bussiness to our website</h2>
         <form id="weddingPlannerphotographer_sp_Form" action="photographer_sp_form.php" method="post">
             <label for="photoname">Full Name:</label>
             <input type="text" id="photoname" name="photoname" required>

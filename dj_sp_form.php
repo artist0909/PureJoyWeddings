@@ -110,7 +110,7 @@
 
 <body>
     <div class="registration-container">
-        <h2>Wedding Planner Registration</h2>
+        <h2>Add your bussiness to our website</h2>
         <form id="weddingPlannerdj_sp_Form" action="dj_sp_form.php" method="post">
             <label for="djname">Full Name:</label>
             <input type="text" id="djname" name="djname" required>

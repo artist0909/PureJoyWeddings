@@ -37,6 +37,7 @@
         $result= mysqli_query($conn,$sql);
         if($result){
           $showAlert = true;
+          header("location: login2.php");
         }
       }
       else{
