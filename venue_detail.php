@@ -76,6 +76,17 @@ box-shadow: 10px 5px 5px black;
         margin-right: 1%;
         color: white;
     }
+
+    footer {
+        background-color: #ffc107;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        /*    position: fixed;*/
+        bottom: 0;
+        width: 100%;
+        margin-top: 25%;
+    }
     </style>
 </head>
 
@@ -204,6 +215,14 @@ echo'
         ?>
         </div>
     </div>
+    <footer>
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
+        <p>Email: info@purejoyweddings.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
+            rights reserved.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

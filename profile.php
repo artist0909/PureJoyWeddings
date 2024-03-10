@@ -228,11 +228,11 @@ echo'
              </div>
              <div class="col-md-8 profile-detail">
                  <h2>User Profile</h2>
-                 <p><b>Username:</b>' . $a . '</p>
+                 <p><b>Username:</b> ' . $a . '</p>
                  <p><b>Email:</b> ' . $_SESSION['uname'] . '</p>
-                 <p><b>Gender:</b>' . $b . '</p>
-                 <p><b>Contact:</b>' . $c . '</p>
-                 <p><b>Register_As:</b>' . $d . '</p>
+                 <p><b>Gender:</b> ' . $b . '</p>
+                 <p><b>Contact:</b> ' . $c . '</p>
+                 <p><b>Register_As:</b> ' . $d . '</p>
                  <br>
                  <a href="edit_profile.php" class="btn btn-warning">Edit Profile</a>
              </div>

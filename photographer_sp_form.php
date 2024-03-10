@@ -24,6 +24,7 @@
         box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 1);
         background-color: white;
         border-radius: 5px;
+        margin-top: 7%;
     }
 
     h2 {
@@ -123,7 +124,7 @@
             <label for="contactnumber">Contact:</label>
             <input type="tel" id="contactnumber" name="contactnumber" required>
 
-            <button type="submit">Register</button>
+            <button type="submit">Add</button>
         </form>
     </div>
 

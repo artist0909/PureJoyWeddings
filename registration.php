@@ -24,6 +24,7 @@
         box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 1);
         background-color: white;
         border-radius: 5px;
+        margin-top: 8%;
     }
 
     h2 {
@@ -110,7 +111,7 @@
 
 <body>
     <div class="registration-container">
-        <h2>Wedding Planner Registration</h2>
+        <h2>Registration Form</h2>
         <form id="weddingPlannerRegistrationForm" action="registration.php" method="post">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>

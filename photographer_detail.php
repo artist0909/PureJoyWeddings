@@ -76,6 +76,56 @@ box-shadow: 10px 5px 5px black;
         margin-right: 1%;
         color: white;
     }
+
+    .feedback-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #ffc107;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        /*    position: fixed;*/
+        bottom: 0;
+        width: 100%;
+        margin-top: 25%;
+    }
+
+    @media screen and (max-width: 600px) {
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+        }
+    }
     </style>
 </head>
 
@@ -212,9 +262,77 @@ echo'
             echo "No cards found.";
         }
         ?>
+            <hr>
+        </div>
+        <?php
+
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "purejoyweddings";
+
+    $conn = mysqli_connect($server,$username,$password,$database);
+
+    if(!$conn){
+      die("Error". mysqli_connect_error());
+    } 
+
+    $feedusername = $_POST["feedusername"];
+    // $email = $_SESSION['uname'];
+    $feedfeedback = $_POST["feedfeedback"];
+    $eventservicedate = $_POST["eventservicedate"];
+    $rating = $_POST["rating"];
+    $recommendation = $_POST['recommendation'];
+
+    $sql = "INSERT INTO `photographer_feedback` (`feed_username`, `feed_feedback`,`event_service_date`, `rating`, `recommendation`) 
+    VALUES ('$feedusername', '$feedfeedback','$eventservicedate', '$rating', '$recommendation')";
+    $result = mysqli_query($conn,$sql);
+    if($result){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Successfully</strong> Your entery has been submitted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        header("location: weddingplanner.php");
+       }
+       else{
+           echo "error -->". mysqli_error($conn);
+       }
+
+}
+?>
+
+        <div class="fedback-container">
+            <h2>Feedback Form</h2>
+            <form action="photographer_detail.php" method="post">
+                <label for="feedusername">Your Name:</label>
+                <input type="text" id="feedusername" name="feedusername" required>
+
+                <label for="eventservicedate">Event Date:</label>
+                <input type="date" id="eventservicedate" name="eventservicedate" required>
+
+                <label for="rating">Rating (1-5):</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+                <label for="recommendation">Recommendation:</label>
+                <textarea id="recommendation" name="recommendation" rows="4" required>Yes</textarea>
+
+                <label for="feedfeedback">Feedback:</label>
+                <textarea id="feedfeedback" name="feedfeedback" rows="4" required></textarea>
+
+                <button class="btn btn-warning" type="submit">submit</button>
+            </form>
         </div>
     </div>
-
+    <footer>
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
+        <p>Email: info@purejoyweddings.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
+            rights reserved.</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
