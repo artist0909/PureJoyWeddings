@@ -100,6 +100,7 @@
         text-decoration: none;
         color: black;
     }
+
     .profile_icon {
         margin: 0 1%;
         color: white;
@@ -153,11 +154,8 @@ echo'
         <li class="nav-item">
           <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
-		<li class="nav-item">
-          <a class="nav-link active" href="registration.php">Registration</a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link active" href="aboutus.html">AboutUs</a>
+          <a class="nav-link active" href="aboutus.php">AboutUs</a>
         </li>
       </ul>';
       if(!$loggedin){
@@ -225,8 +223,8 @@ echo'
          <div class="row">
              <div class="col-md-8 images">
                  <img src="images\user_profile.png" alt="User Profile Photo" class="img-fluid rounded-circle">
-             </div>
-             <div class="col-md-8 profile-detail">
+                 </div>
+                 <div class="col-md-8 profile-detail">
                  <h2>User Profile</h2>
                  <p><b>Username:</b> ' . $a . '</p>
                  <p><b>Email:</b> ' . $_SESSION['uname'] . '</p>

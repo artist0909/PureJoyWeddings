@@ -7,7 +7,6 @@
     <title>PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="">
     <style>
     .logoutanchor {
         text-decoration: none;
@@ -105,6 +104,25 @@
         width: 100%;
         margin-top: 25%;
     }
+
+    @media screen and (max-width: 768px) {
+        .img-custom {
+            height: auto;
+            /* Adjust height to auto for smaller screens */
+        }
+
+        .text-overlay {
+            font-size: 18px;
+            /* Decrease font size for smaller screens */
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .text-overlay {
+            top: 50%;
+            /* Adjust top position for smaller screens */
+        }
+    }
     </style>
 </head>
 
@@ -153,9 +171,6 @@
 				</li>
 				<li class="nav-item">
 				<a class="nav-link active" href="pandit.php">Pandit</a>
-				</li>
-				<li class="nav-item">
-				<a class="nav-link active" href="registration.php">Registration</a>
 				</li>
 				<li class="nav-item">
 				<a class="nav-link active" href="aboutus.php">AboutUs</a>
@@ -369,7 +384,8 @@
         <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
         <p>Email: info@purejoyweddings.com</p>
         <p>Phone: (123) 456-7890</p>
-        <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All rights reserved.</p>
+        <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
+            rights reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

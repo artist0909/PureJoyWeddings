@@ -9,25 +9,6 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="">
     <style>
-    /*
-nav{
-	display: flex;
-	float: right;
-	background-color: palegoldenrod;
-	height: ;
-
-}
-h1{
-	margin: 0 800px;
-box-shadow: 10px 5px 5px black;
-}
-/*nav li{
-	list-style: none;
-	padding: 0 12px;
-	font-size: 20px;
-}*/
-
-
     * {
         margin: 0;
         padding: 0;
@@ -136,11 +117,8 @@ echo'
         <li class="nav-item">
           <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
-		<li class="nav-item">
-          <a class="nav-link active" href="registration.php">Registration</a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link active" href="aboutus.html">AboutUs</a>
+          <a class="nav-link active" href="aboutus.php">AboutUs</a>
         </li>
       </ul>';
       if(!$loggedin){

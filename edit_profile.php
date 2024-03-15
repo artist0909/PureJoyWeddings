@@ -9,7 +9,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="">
 
-    <!-- <style>
+    <style>
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -67,93 +67,87 @@
     .registeras_radio {
         /* display: flex; */
     }
-    </style> -->
+    </style>
 </head>
 
 <body>
     <?php 
-//   session_start();
-//     $a = "";
-//     $b = "";
-//     $c = "";
-//     $d = "";
-//   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-// 		$loggedin = true;
-// 	}
-//   else{
-//     $loggedin = false;
-//   }
+  session_start();
+    // $a = "";
+    // $b = "";
+    // $c = "";
+    // $d = "";
+  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+		$loggedin = true;
+	}
+  else{
+    $loggedin = false;
+  }
 ?>
     <?php
 
-    //     $login = false;
-    //     $showError = false;
-    //     if($_SERVER["REQUEST_METHOD"] == "POST"){
+// session_start();
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    //     $server = "localhost";
-    //     $username = "root";
-    //     $password = "";
-    //     $database = "purejoyweddings";
+ $server = "localhost";
+ $username = "root";
+ $password = "";
+ $database = "purejoyweddings";
 
-    //     $conn = mysqli_connect($server,$username,$password,$database);
+ $conn = mysqli_connect($server,$username,$password,$database);
 
-    //     if(!$conn){
-    //         die("Error". mysqli_connect_error());
-    //     } 
+ if(!$conn){
+   die("Error". mysqli_connect_error());
+ } 
 
-    //     $sno = $_GET["sno"];
-        
-    //     // $sql = "SELECT * FROM user WHERE uname = '$uname' AND password = '$pass'";
-    //     $sql = "SELECT * FROM `registration_detail` WHERE sno = '$sno'";
-    //     $result= mysqli_query($conn,$sql);
-    //     $num = mysqli_num_rows($result);
-    //     echo $num;
-    //     if($num == 1){
-    //         while($row = mysqli_fetch_assoc($result)){ 
-    //             $a = $row['fullname'];
-    //             $b = $row['gender'];
-    //             $c = $row['pnumber'];
-    //             $d = $row['register_as'];
-    //         }
-    //     }
-    // }
-    //         echo'<div class="registration-container">
-    //         <h2>Wedding Planner Registration</h2>
-    //         <form id="weddingPlannerEditProfileForm" action="edit_profile.php" method="post">
-    //             <label for="name">UserName:</label>
-    //             <input type="text" id="name" name="name" value="' . $a . '" required>
+ $fullname = $_POST["name"];
+ $email = $_SESSION['uname'];
+ $gender = $_POST["gender"];
+ $pnumber = $_POST["phone"];
+//  $register_as = $_POST["register_as"];
 
-    //             <label for="gender">Gender:</label>
-    //             <div class="form-check form-check-inline col-md-4">
-    //                 <input class="form-check-input" type="radio" name="gender" id="male" value="' . $b . '">
-    //                 <label class="form-check-label" for="gender">Male</label>
-    //             </div>
-    //             <div class="form-check form-check-inline col-md-4">
-    //                 <input class="form-check-input" type="radio" name="gender" id="female" value="' . $b . '">
-    //                 <label class="form-check-label" for="gender">Female</label>
-    //             </div>
-    //             <div class="form-check form-check-inline">
-    //                 <input class="form-check-input" type="radio" name="gender" id="other" value="' . $b . '">
-    //                 <label class="form-check-label" for="gender">Other</label>
-    //             </div>
+ echo $gender;
+ $sql = "UPDATE `registration_detail` SET `fullname` = '$fullname', `gender` = '$gender', `pnumber` = '$pnumber' WHERE `registration_detail`.`email` = '" . $_SESSION['uname'] . "'";
+ $result = mysqli_query($conn,$sql);
+ if($result){
+     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+     <strong>Successfully</strong> Your entery has been submitted successfully!
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>';
+     header("location: profile.php");
+    }
+    else{
+        echo "error -->". mysqli_error($conn);
+    }
 
-    //             <label for="phone">Phone Number:</label>
-    //             <input type="tel" id="phone" name="phone" value="' . $c . '" required>
+}
+?>
+    <div class="registration-container">
+        <h2>Edit Profile</h2>
+        <form id="weddingPlannerEditProfileForm" action="edit_profile.php" method="post">
+            <label for="name">UserName:</label>
+            <input type="text" id="name" name="name" value="" required>
 
-    //             <label for="gender">Register As:</label>
-    //             <div class="form-check form-check-inline col-md-7">
-    //                 <input class="form-check-input" type="radio" name="register_as" id="user" value="' . $d . '">
-    //                 <label class="form-check-label" for="inlineRadio1">User</label>
-    //             </div>
-    //             <div class="form-check form-check-inline">
-    //                 <input class="form-check-input" type="radio" name="register_as" id="serpro" value="' . $d . '">
-    //                 <label class="form-check-label" for="inlineRadio2">Service Provider</label>
-    //             </div>
+            <label for="gender">Gender:</label> 
+            <div class="form-check form-check-inline col-md-4">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                <label class="form-check-label" for="gender">Male</label>
+            </div>
+            <div class="form-check form-check-inline col-md-4">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="gender">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                <label class="form-check-label" for="gender">Other</label>
+            </div>
 
-    //             <button type="submit">Register</button>
-    //         </form>
-    //     </div>';
-    ?>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" value="" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
     </div>
     </div>
 

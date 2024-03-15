@@ -129,11 +129,8 @@ echo'
         <li class="nav-item">
           <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
-		<li class="nav-item">
-          <a class="nav-link active" href="registration.php">Registration</a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link active" href="aboutus.html">AboutUs</a>
+          <a class="nav-link active" href="aboutus.php">AboutUs</a>
         </li>
       </ul>';
       if(!$loggedin){

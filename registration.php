@@ -133,7 +133,7 @@
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" required>
 
-            <label for="gender">Register As:</label>
+            <label for="register_as">Register As:</label>
             <div class="form-check form-check-inline col-md-7">
                 <input class="form-check-input" type="radio" name="register_as" id="user" value="user">
                 <label class="form-check-label" for="inlineRadio1">User</label>
