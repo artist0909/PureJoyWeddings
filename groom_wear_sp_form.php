@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>decorator_sp_form - PureJoyWeddings</title>
+    <title>groom_wear_detail_sp_form - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="registration.css"> -->
@@ -24,6 +24,7 @@
         box-shadow: 0px 0px 10px 0px rgba(255, 255, 0, 1);
         background-color: white;
         border-radius: 5px;
+        margin-top: 7%;
     }
 
     h2 {
@@ -84,14 +85,14 @@
       die("Error". mysqli_connect_error());
     } 
 
-    $decorname = $_POST["decorname"];
-    $location = $_POST["decorlocation"];
-    $charges = $_POST["decorcharges"];
+    $groomwearname = $_POST["groomwearname"];
+    $location = $_POST["groomwearlocation"];
+    $charges = $_POST["groomwearcharges"];
     $email = $_SESSION['uname'];
     $contact = $_POST["contactnumber"];
 
-    $sql = "INSERT INTO `decorater_detail` (`decor_name`, `decor_location`, `decor_charges`, `email`, `contact_number`) 
-    VALUES ('$decorname','$location','$charges','$email','$contact')";
+    $sql = "INSERT INTO `groomwear_detail` (`groomwear_name`, `groomwear_location`, `groomwear_charges`, `email`, `contact_number`) 
+    VALUES ('$groomwearname','$location','$charges','$email','$contact')";
     $result = mysqli_query($conn,$sql);
     if($result){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -109,7 +110,7 @@
 
 <body>
     <div class="registration-container">
-        <a href="decorator.php" class="back_button_of_login" style="color: black;">
+        <a href="groom_wear.php" class="back_button_of_login" style="color: black;">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                     <path d="M21 12H3.5" />
@@ -118,15 +119,15 @@
             </svg>
         </a>
         <h2>Add your bussiness to our website</h2>
-        <form id="weddingPlannerdecorator_sp_Form" action="decorator_sp_form.php" method="post">
-            <label for="decorname">Full Name:</label>
-            <input type="text" id="decorname" name="decorname" required>
+        <form id="weddingPlannergroomwear_sp_Form" action="groom_wear_sp_form.php" method="post">
+            <label for="groomwearname">Shop Name:</label>
+            <input type="text" id="groomwearname" name="groomwearname" required>
 
-            <label for="decorlocation">Location:</label>
-            <input type="tel" id="decorlocation" name="decorlocation" required>
+            <label for="groomwearlocation">Location:</label>
+            <input type="tel" id="groomwearlocation" name="groomwearlocation" required>
 
-            <label for="decorcharges">Charges:</label>
-            <input type="tel" id="decorcharges" name="decorcharges" required>
+            <label for="groomwearcharges">Charges:</label>
+            <input type="tel" id="groomwearcharges" name="groomwearcharges" required>
 
             <label for="contactnumber">Contact:</label>
             <input type="tel" id="contactnumber" name="contactnumber" required>

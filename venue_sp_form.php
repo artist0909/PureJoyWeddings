@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photographer_sp_form</title>
+    <title>Venue_sp_form - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="registration.css"> -->
@@ -110,6 +110,14 @@
 
 <body>
     <div class="registration-container">
+        <a href="venue.php" class="back_button_of_login" style="color: black;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M21 12H3.5" />
+                    <path d="M3 12L10 19M3 12L10 5" />
+                </g>
+            </svg>
+        </a>
         <h2>Add your bussiness to our website</h2>
         <form id="weddingPlannervenue_sp_Form" action="venue_sp_form.php" method="post">
             <label for="venuename">Full Name:</label>
@@ -127,7 +135,7 @@
             <label for="contactnumber">Contact:</label>
             <input type="tel" id="contactnumber" name="contactnumber" required>
 
-            <button type="submit">Register</button>
+            <button type="submit">Add</button>
         </form>
     </div>
 

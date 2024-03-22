@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="name">UserName:</label>
             <input type="text" id="name" name="name" value="" required>
 
-            <label for="gender">Gender:</label> 
+            <label for="gender">Gender:</label>
             <div class="form-check form-check-inline col-md-4">
                 <input class="form-check-input" type="radio" name="gender" id="male" value="male">
                 <label class="form-check-label" for="gender">Male</label>
@@ -145,12 +145,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" value="" required>
 
-            <button type="submit">Register</button>
+            <button type="submit">Save Charges</button>
         </form>
     </div>
-    </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

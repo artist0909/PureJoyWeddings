@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dj - PureJoyWeddings</title>
+    <title>Bride Wear - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="">
@@ -49,7 +49,7 @@
         color: black;
     }
 
-    .dj_detail_link {
+    .bride_detail_link {
         text-decoration: none;
         color: black;
     }
@@ -59,7 +59,7 @@
         margin-right: 68%;
     }
 
-    .dj_sp_form_link {
+    .bride_sp_form_link {
         text-decoration: none;
         color: black;
     }
@@ -83,8 +83,8 @@
 </head>
 
 <body>
-    <?php
-    session_start(); 
+    <?php 
+  session_start();
   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 		$loggedin = true;
 	}
@@ -159,8 +159,9 @@ echo'
     <?php
 	require '_dbconnect.php';
 ?>
+
     <div class="container mt-3">
-        <h2 class="add_serpro">Wedding DJs</h2>
+        <h2 class="add_serpro">Bride Wear</h2>
         <?php
            $server = "localhost";
            $username = "root";
@@ -187,7 +188,7 @@ echo'
                   //  echo $register_as;
                    if($register_as == "serpro"){
                     echo'
-                    <a class="dj_sp_form_link" href="dj_sp_form.php">
+                    <a class="bride_sp_form_link" href="bride_wear_sp_form.php">
                     <b>Advertise Your Business</b>
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z" />
@@ -202,29 +203,36 @@ echo'
         <div class="row">
             <?php
         $database = new Database();
-        $cards = $database->getAllDjCards();
+        $cards = $database->getAllBrideWearCards();
 
         if ($cards) {
             foreach ($cards as $card) {
                 ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <a href="dj_detail.php?sno=<?php echo $card['sno']; ?>">
-                        <?php if (!empty($card['sno'])) { ?>
-                        <img src="images\dj_images\Wedding-Dj-<?php echo $card['sno']%8; ?>.jpg" class="card-img-top"
-                            alt="Card Image">
+                    <?php if (!empty($card['bridewear_sno'])) { ?>
+                    <a href="bride_wear_detail.php?bridewear_sno=<?php echo $card['bridewear_sno']; ?>">
+                        <img src="images\bridal_wear\bridal-wear-<?php echo $card['bridewear_sno']; ?>.jpg"
+                            class="card-img-top" alt="Card Image">
                         <?php } ?>
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title"><a class="dj_detail_link"
-                                href="dj_detail.php?sno=<?php echo $card['sno']; ?>"><?php echo $card['dj_name']; ?></a>
+                        <h5 class="card-title"><a class="bride_detail_link"
+                                href="bride_wear_detail.php?bridewear_sno=<?php echo $card['bridewear_sno']; ?>"><?php echo $card['bridewear_name']; ?></a>
                         </h5>
-                        <p class="card-text">Location: <?php echo $card['area']; ?></p>
-                        <p class="card-text">Charges: <?php echo $card['charges']; ?></p>
-                        <p class="card-text">Experience: Last <?php echo $card['experience']; ?> Experience</p>
+                        <hr>
+                        <p class="card-text">Location: <?php echo $card['bridewear_location']; ?></p>
+                        <p class="card-text">Charges:
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M16 12a2 2 0 0 1 2-2h12a2 2 0 1 1 0 4h-3.07a7.96 7.96 0 0 1 .818 2H30a2 2 0 1 1 0 4h-2.252a8.012 8.012 0 0 1-6.121 5.834l6.037 9.057a2 2 0 1 1-3.328 2.218l-8-12A2 2 0 0 1 18 22h2c1.48 0 2.773-.804 3.465-2H18a2 2 0 1 1 0-4h5.465A3.998 3.998 0 0 0 20 14h-2a2 2 0 0 1-2-2"
+                                    clip-rule="evenodd" />
+                            </svg><?php echo $card['bridewear_charges']; ?>
+                        </p>
                         <p class="card-text">Email: <?php echo $card['email']; ?></p>
                         <p class="card-text">Contact Number: <?php echo $card['contact_number']; ?></p>
-                        <a href="dj_detail.php?sno=<?php echo $card['sno']; ?>" class="btn btn-primary">View More</a>
+                        <a href="bride_wear_detail.php?bridewear_sno=<?php echo $card['bridewear_sno']; ?>"
+                            class="btn btn-primary">View More</a>
                         <!-- Add additional card details here -->
                     </div>
                 </div>

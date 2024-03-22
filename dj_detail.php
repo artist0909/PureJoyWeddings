@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PureJoyWeddings</title>
+    <title>dj-detail - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="">
@@ -68,6 +68,22 @@
         width: 100%;
         margin-top: 25%;
     }
+
+    .venue_link_arrow {
+        display: inline;
+        margin-right: 69%;
+    }
+
+    .decor_link_arrow {
+        display: inline;
+        margin-right: 62%;
+        text-decoration: none;
+    }
+
+    .venue_link {
+        text-decoration: none;
+        color: black;
+    }
     </style>
 </head>
 
@@ -109,7 +125,7 @@ echo'
           <a class="nav-link active" href="venue.php">Venue</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="food.php">Catrace</a>
+          <a class="nav-link active" href="food.php">Food</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="dj.php">Dj</a>
@@ -124,13 +140,11 @@ echo'
       if(!$loggedin){
       echo'
       <form class="d-flex" role="search">
-      	<img src="images\1024px-Search_Icon.jpg" height="20px">
         <button class="form-control me-2" type="login"><a href="login2.php" class="loginanchor">Login</a></button>
         <button class="form-control me-2" type="login"><a href="signup.php" class="signupanchor">Signup</a></button>';
       }
       if($loggedin){
         echo'
-        <img src="images\1024px-Search_Icon.jpg" height="20px">
         <a class="profile_icon" href="profile.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -193,11 +207,125 @@ echo'
         ?>
         </div>
     </div>
+    <div class="container mt-4">
+        <h2 class="venue_link_arrow">Populer Venues</h2>
+        <a class="venue_link" href="venue.php">
+            <b>View all Venues
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                    <g transform="translate(24 0) scale(-1 1)">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <path d="M21 12H3.5" />
+                            <path d="M3 12L10 19M3 12L10 5" />
+                        </g>
+                    </g>
+                </svg>
+            </b>
+        </a>
+        <hr class="mb-4">
+        <div class="row">
+            <?php
+        $database = new Database();
+        $cards = $database->getAllVenueCards();
+
+        if ($cards) {
+            $count = 0;
+            foreach ($cards as $card) {
+                if($count == 4){
+                    break;
+                }
+                $count = $count + 1;
+                ?>
+            <div class="card mb-3" style="max-width: 540px; margin-right: 9%;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <a href="venue.php" style="text-decoration: none; color: black;">
+                            <?php if (!empty($card['venue_sno'])) { ?>
+                            <img src="images\venue_images\Wedding-Venue-<?php echo $card['venue_sno']; ?>.jpg"
+                                class="img-fluid rounded-start">
+                            <?php } ?>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <a href="venue.php" style="text-decoration: none; color: black;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $card['venue_name']; ?></h5>
+                                <p class="card-text">Location: <?php echo $card['venue_place']; ?></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+        } else {
+            echo "No cards found.";
+        }
+        ?>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <h2 class="decor_link_arrow">Wedding Decoraters</h2>
+        <a class="venue_link" href="venue.php">
+            <b>View all Decorater
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                    <g transform="translate(24 0) scale(-1 1)">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <path d="M21 12H3.5" />
+                            <path d="M3 12L10 19M3 12L10 5" />
+                        </g>
+                    </g>
+                </svg>
+            </b>
+        </a>
+        <hr class="mb-4">
+        <div class="row">
+            <?php
+        $database = new Database();
+        $cards = $database->getAllDecoratorCards();
+
+        if ($cards) {
+            $count = 0;
+            foreach ($cards as $card) {
+                if($count == 4){
+                    break;
+                }
+                $count = $count + 1;
+                ?>
+            <div class="card mb-3" style="max-width: 540px; margin-right: 9%;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <a href="decorator.php" style="text-decoration: none; color: black;">
+                            <?php if (!empty($card['decor_sno'])) { ?>
+                            <img src="images\decorator_images\Wedding-Decorator-<?php echo $card['decor_sno']; ?>.jpg"
+                                class="img-fluid rounded-start">
+                            <?php } ?>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <a href="decorator.php" style="text-decoration: none; color: black;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $card['decor_name']; ?></h5>
+                                <p class="card-text">Location: <?php echo $card['decor_location']; ?></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+        } else {
+            echo "No cards found.";
+        }
+        ?>
+        </div>
+    </div>
     <footer>
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
         <p>Email: info@purejoyweddings.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Phone: 9876543210</p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
             rights reserved.</p>
     </footer>

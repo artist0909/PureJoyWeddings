@@ -66,6 +66,22 @@ class Database
         return $result;
     }
 
+    public function getAllGroomWearCards()
+    {
+        $query = "SELECT * FROM groomwear_detail";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllBrideWearCards()
+    {
+        $query = "SELECT * FROM bridewear_detail";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function getAllPhotographerDetailCards()
     {
         $photosno = $_GET['photo_sno'];
@@ -115,6 +131,24 @@ class Database
     {
         $foodsno = $_GET['food_sno'];
         $query = "SELECT * FROM `food_detail` WHERE food_sno= $foodsno ";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllGroomWearDetailCards()
+    {
+        $groomwearsno = $_GET['groomwear_sno'];
+        $query = "SELECT * FROM `groomwear_detail` WHERE groomwear_sno= $groomwearsno";
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result; 
+    }
+
+    public function getAllBrideWearDetailCards()
+    {
+        $bridewearsno = $_GET['bridewear_sno'];
+        $query = "SELECT * FROM `bridewear_detail` WHERE bridewear_sno= $bridewearsno";
         $stmt = $this->db->query($query);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;

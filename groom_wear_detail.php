@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Venue_Detail - PureJoyWeddings</title>
+    <title>Groomwear_detail - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="">
@@ -58,6 +58,36 @@
         color: white;
     }
 
+    .feedback-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
     footer {
         background-color: #ffc107;
         color: #fff;
@@ -71,22 +101,31 @@
 
     .food_link_arrow {
         display: inline;
-        margin-right: 69%;
+        margin-right: 72%;
     }
 
-    .decor_link_arrow{
-      display: inline;
-      margin-right: 62%;
+    .decor_link_arrow {
+        display: inline;
+        margin-right: 62%;
     }
 
-    .food_link{
-      text-decoration: none;
-      color:black;
+    .food_link {
+        text-decoration: none;
+        color: black;
     }
 
-    .decor_link{
-      text-decoration: none;
-      color:black;
+    .decor_link {
+        text-decoration: none;
+        color: black;
+    }
+
+    @media screen and (max-width: 600px) {
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+        }
     }
     </style>
 </head>
@@ -169,7 +208,7 @@ echo'
 	require '_dbconnect.php';
 ?>
     <div class="container mt-3">
-        <a href="venue.php" class="back_button_of_login">
+        <a href="groom_wear.php" class="back_button_of_login">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                     <path d="M21 12H3.5" />
@@ -177,29 +216,45 @@ echo'
                 </g>
             </svg>
         </a>
-        <h1>Wedding Venues</h1>
+        <h1>Groom Wear</h1>
         <hr class="mb-4">
         <div class="row">
             <?php
             $database = new Database();
-            $cards = $database->getAllVenueDetailCards();
+            $cards = $database->getAllGroomWearDetailCards();
 
         if ($cards) {
             foreach ($cards as $card) {
                 ?>
             <div class="col-md-5 mb-4">
                 <div class="card">
-                    <?php if (!empty($card['venue_sno'])) { ?>
-                    <img src="images\venue_images\Wedding-Venue-<?php echo $card['venue_sno']; ?>.jpg"
+                    <?php if (!empty($card['groomwear_sno'])) { ?>
+                    <img src="images\groom_wear\groom-wear-<?php echo $card['groomwear_sno']; ?>.jpg"
                         class="card-img-top" alt="Card Image">
                     <?php } ?>
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $card['venue_name']; ?></h5>
-                        <p class="card-text">Location: <?php echo $card['venue_place']; ?></p>
-                        <p class="card-text">Charges: <?php echo $card['venue_veg_price']; ?></p>
-                        <p class="card-text">Rooms: <?php echo $card['venue_room']; ?></p>
+                        <h5 class="card-title"><?php echo $card['groomwear_name']; ?></h5>
+                        <p class="card-text">Location: <?php echo $card['groomwear_location']; ?></p>
+                        <p class="card-text">Charges:
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M16 12a2 2 0 0 1 2-2h12a2 2 0 1 1 0 4h-3.07a7.96 7.96 0 0 1 .818 2H30a2 2 0 1 1 0 4h-2.252a8.012 8.012 0 0 1-6.121 5.834l6.037 9.057a2 2 0 1 1-3.328 2.218l-8-12A2 2 0 0 1 18 22h2c1.48 0 2.773-.804 3.465-2H18a2 2 0 1 1 0-4h5.465A3.998 3.998 0 0 0 20 14h-2a2 2 0 0 1-2-2"
+                                    clip-rule="evenodd" />
+                            </svg> <?php echo $card['groomwear_charges']; ?>
+                        </p>
                         <p class="card-text">Email: <?php echo $card['email']; ?></p>
                         <p class="card-text">Contact Number: <?php echo $card['contact_number']; ?></p>
+                        <?php
+                          // if($_SESSION['uname'] == $card['email']){
+                          //   // echo'
+                          //   // <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                          //   // <path fill="#ff0000" d="M16 9v10H8V9zm-1.5-6h-5l-1 1H5v2h14V4h-3.5zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2z"/>
+                          //   // </svg>
+                          //   // </a>';
+                          // }
+                          
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -267,8 +322,8 @@ echo'
         }
         ?>
         </div>
-      </div>
-      <div class="container mt-4">
+    </div>
+    <div class="container mt-4">
         <h2 class="decor_link_arrow">Wedding Decoraters</h2>
         <a class="decor_link" href="decorator.php">
             <b>View all Decorater
@@ -324,16 +379,15 @@ echo'
         }
         ?>
         </div>
-      </div>
+    </div>
     <footer>
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
         <p>Email: info@purejoyweddings.com</p>
-        <p>Phone: 9876543210</p>
+        <p>Phone: 9876541230</p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
             rights reserved.</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PureJoyWeddings-Venue</title>
+    <title>Venue - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="">
@@ -121,7 +121,7 @@ echo'
           <a class="nav-link active" href="venue.php">Venue</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="food.php">Catrace</a>
+          <a class="nav-link active" href="food.php">Food</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="dj.php">Dj</a>
@@ -136,13 +136,11 @@ echo'
       if(!$loggedin){
       echo'
       <form class="d-flex" role="search">
-      	<img src="images\1024px-Search_Icon.jpg" height="20px">
         <button class="form-control me-2" type="login"><a href="login2.php" class="loginanchor">Login</a></button>
         <button class="form-control me-2" type="login"><a href="signup.php" class="signupanchor">Signup</a></button>';
       }
       if($loggedin){
         echo'
-        <img src="images\1024px-Search_Icon.jpg" height="20px">
         <a class="profile_icon" href="profile.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -214,7 +212,7 @@ echo'
                 <div class="card">
                     <?php if (!empty($card['venue_sno'])) { ?>
                     <a href="venue_detail.php?venue_sno=<?php echo $card['venue_sno']; ?>">
-                        <img src="images\venue_images\Wedding-Venue-<?php echo $card['venue_sno']; ?>.jpg"
+                        <img src="images\venue_images\Wedding-Venue-<?php echo $card['venue_sno']%8; ?>.jpg"
                             class="card-img-top" alt="Card Image">
                         <?php } ?>
                     </a>
@@ -245,7 +243,7 @@ echo'
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
         <p>Email: info@purejoyweddings.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Phone: 9876543210</p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
             rights reserved.</p>
     </footer>

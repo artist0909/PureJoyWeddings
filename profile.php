@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>User Profile - PureJoyWeddings</title>
     <!-- Bootstrap CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -55,6 +55,11 @@
     .loginpage {
         text-decoration: none;
         color: black;
+    }
+
+    img{
+      padding: 0 10px;
+      margin: 9px 0;
     }
 
     .images {
@@ -146,7 +151,7 @@ echo'
           <a class="nav-link active" href="venue.php">Venue</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="food.php">Catrace</a>
+          <a class="nav-link active" href="food.php">Food</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="dj.php">Dj</a>
@@ -161,13 +166,11 @@ echo'
       if(!$loggedin){
       echo'
       <form class="d-flex" role="search">
-      	<img src="images\1024px-Search_Icon.jpg" height="20px">
         <button class="form-control me-2" type="login"><a href="login2.php" class="loginanchor">Login</a></button>
         <button class="form-control me-2" type="login"><a href="signup.php" class="signupanchor">Signup</a></button>';
       }
       if($loggedin){
         echo'
-        <img src="images\1024px-Search_Icon.jpg" height="20px">
         <a class="profile_icon" href="profile.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">

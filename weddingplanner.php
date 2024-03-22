@@ -61,7 +61,7 @@
 
     .text-overlay {
         position: absolute;
-        top: 35%;
+        top: 45%;
         /* Adjust the top position as needed */
         left: 50%;
         /* Adjust the left position as needed */
@@ -117,9 +117,9 @@
         }
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 768px) {
         .text-overlay {
-            top: 50%;
+            top: 30%;
             /* Adjust top position for smaller screens */
         }
     }
@@ -128,6 +128,7 @@
 
 <body>
     <?php 
+        $conn = mysqli_connect("localhost","root","","purejoyweddings"); 
 		session_start();
 		if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 				$loggedin = true;
@@ -164,7 +165,7 @@
 				<a class="nav-link active" href="venue.php">Venue</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link active" href="food.php">Catrace</a>
+				<a class="nav-link active" href="food.php">Food</a>
 				</li>
 				<li class="nav-item">
 				<a class="nav-link active" href="dj.php">Dj</a>
@@ -179,13 +180,11 @@
 			if(!$loggedin){
 			echo'
 			<form class="d-flex" role="search">
-				<img src="images\1024px-Search_Icon.jpg" height="20px">
 				<button class="form-control me-2" type="login"><a href="login2.php" class="loginanchor">Login</a></button>
 				<button class="form-control me-2" type="login"><a href="signup.php" class="signupanchor">Signup</a></button>';
 			}
 			if($loggedin){
-				echo'
-				<img src="images\1024px-Search_Icon.jpg" height="20px">
+                echo'
                 <a class="profile_icon" href="profile.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -205,10 +204,10 @@
     <div class="bride_groom_img">
         <img src="images\bride_groom.jpg" class="img-fluid img-custom">
         <div class="text-overlay">
-            <h1>Your Wedding palannig is now Our Responsibilites!</h1>
+            <h1>Your Wedding palannig is now our Responsibilites!</h1>
             <h3>find the best weddingd venue with the 100 reviews</h3>
             <!-- Example single danger button -->
-            <div class="btn-group">
+            <!-- <div class="btn-group">
                 <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Select vendor type
@@ -220,8 +219,8 @@
                     <li><a class="dropdown-item" href="dj.php">Wedding DJ</a></li>
                     <li><a class="dropdown-item" href="pandit.php">Wedding Pandit</a></li>
                 </ul>
-            </div>
-            <div class="btn-group">
+            </div> -->
+            <!-- <div class="btn-group">
                 <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Select your favorite city
@@ -231,7 +230,7 @@
                     <li><a class="dropdown-item" href="#">Rajkot</a></li>
                     <li><a class="dropdown-item" href="#">Ahemdabad</a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -379,15 +378,15 @@
             </div>
         </div>
     </div>
+    
     <footer>
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
         <p>Email: info@purejoyweddings.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Phone: 9876543210</p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
             rights reserved.</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>

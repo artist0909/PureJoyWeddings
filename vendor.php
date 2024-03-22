@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Vendor - PureJoyWeddings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
@@ -59,6 +59,12 @@
         margin-right: 7%;
     }
 
+    .groom{
+        position: relative;
+        top: -150px;
+        width: 45%;
+    }
+
     footer {
         background-color: #ffc107;
         color: #fff;
@@ -67,7 +73,7 @@
         /*    position: fixed;*/
         bottom: 0;
         width: 100%;
-        margin-top: 30%;
+        margin-top: 60%;
     }
     </style>
 </head>
@@ -110,7 +116,7 @@
 				<a class="nav-link active" href="venue.php">Venue</a>
 				</li>
 				<li class="nav-item">
-				<a class="nav-link active" href="food.php">Catrace</a>
+				<a class="nav-link active" href="food.php">Food</a>
 				</li>
 				<li class="nav-item">
 				<a class="nav-link active" href="dj.php">Dj</a>
@@ -125,13 +131,11 @@
 			if(!$loggedin){
 			echo'
 			<form class="d-flex" role="search">
-				<img src="images\1024px-Search_Icon.jpg" height="20px">
 				<button class="form-control me-2" type="login"><a href="login2.php" class="loginanchor">Login</a></button>
 				<button class="form-control me-2" type="login"><a href="signup.php" class="signupanchor">Signup</a></button>';
 			}
 			if($loggedin){
 				echo'
-				<img src="images\1024px-Search_Icon.jpg" height="20px">
                 <a class="profile_icon" href="profile.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -253,13 +257,46 @@
                 </div>
             </div>
         </div>
-
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <a href="bride_wear.php">
+                        <img src="images\bridal_wear\bridal-wear-1.jpg" class="img-fluid rounded-start">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a href="bride_wear.php" style="text-decoration: none; color: black;">
+                            <h5 class="card-title">Bridal Wear</h5>
+                            <p class="card-text">Bridal wear</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 groom" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <a href="groom_wear.php">
+                        <img src="images\groom_wear\groom-wear-1.jpg" class="img-fluid rounded-start">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a href="groom_wear.php" style="text-decoration: none; color: black;">
+                            <h5 class="card-title">Groom Wear</h5>
+                            <p class="card-text">Groom Wear</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
         <p>Email: info@purejoyweddings.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Phone: 9874563210 </p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All
             rights reserved.</p>
     </footer>
