@@ -129,6 +129,12 @@ echo'
           <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
         <li class="nav-item">
+        <a class="nav-link active" href="groom_wear.php">Groom Wear</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="bride_wear.php">Bride Wear</a>
+      </li>
+        <li class="nav-item">
           <a class="nav-link active" href="aboutus.php">AboutUs</a>
         </li>
       </ul>';
@@ -222,7 +228,11 @@ echo'
                         <p class="card-text">Location: <?php echo $card['decor_location']; ?></p>
                         <p class="card-text">Charges: <?php echo $card['decor_charges']; ?></p>
                         <p class="card-text">Email: <?php echo $card['email']; ?></p>
-                        <p class="card-text">Contact Number: <?php echo $card['contact_number']; ?></p>
+                        <!-- <p class="card-text">Contact Number:  -->
+                          <?php 
+                          // echo $card['contact_number']; 
+                          ?>
+                          <!-- </p> -->
                         <a href="decorator_detail.php?decor_sno=<?php echo $card['decor_sno']; ?>"
                             class="btn btn-primary">View More</a>
                         <!-- Add additional card details here -->
@@ -239,7 +249,7 @@ echo'
     </div>
     <footer>
         <h2>Contact Us</h2>
-        <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
+        <p>Your Wedding palannig is now our Responsibilites! find the best weddingd venue with us</p>
         <p>Email: info@purejoyweddings.com</p>
         <p>Phone: 9876543210</p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All

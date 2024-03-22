@@ -138,6 +138,12 @@ echo'
           <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
         <li class="nav-item">
+        <a class="nav-link active" href="groom_wear.php">Groom Wear</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="bride_wear.php">Bride Wear</a>
+      </li>
+        <li class="nav-item">
           <a class="nav-link active" href="aboutus.php">AboutUs</a>
         </li>
       </ul>';
@@ -326,7 +332,7 @@ echo'
       </div>
     <footer>
         <h2>Contact Us</h2>
-        <p>We'd love to hear from you! Reach out for a consultation or any inquiries:</p>
+        <p>Your Wedding palannig is now our Responsibilites! find the best weddingd venue with us</p>
         <p>Email: info@purejoyweddings.com</p>
         <p>Phone: 9876543210</p>
         <p>&copy; 2024 <a href="weddingplanner.php" style="text-decoration: none; color:white;">PureJoyWeddings.</a> All

@@ -160,6 +160,12 @@ echo'
           <a class="nav-link active" href="pandit.php">Pandit</a>
         </li>
         <li class="nav-item">
+        <a class="nav-link active" href="groom_wear.php">Groom Wear</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="bride_wear.php">Bride Wear</a>
+      </li>
+        <li class="nav-item">
           <a class="nav-link active" href="aboutus.php">AboutUs</a>
         </li>
       </ul>';
